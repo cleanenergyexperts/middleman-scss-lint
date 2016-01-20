@@ -23,7 +23,7 @@ module Middleman
 
       def run_once
         paths = app.sitemap.resources
-            .select { |r| puts r.source_file; ext = File.extname(r.source_file); (!ext.nil? && ext == '.scss') }
+            .select { |r| (!r.source_file.nil? && File.extname(r.source_file) == '.scss') }
             .map { |r| r.source_file }
 
         run_linter(paths)
